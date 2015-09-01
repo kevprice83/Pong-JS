@@ -2,9 +2,9 @@
 
 #### The classic Pong game written in Javascript is my current side project ####
 
-*** So this is a work-in-progress and I am using my free time to try and build a fully functional game in pure JS. ***
+***So this is a work-in-progress and I am using my free time to try and build a fully functional game in pure JS.***
 
-*** Why I'm building this: *** I am building on the knowledge gained from my bootcamp and familiarising myself with not only Vanilla JS but also writing object-oriented code also.
+***Why I'm building this:*** I am building on the knowledge gained from my bootcamp and familiarising myself with not only Vanilla JS but also writing object-oriented code also.
 
 ##### How to run the game #####
 
