@@ -5,7 +5,7 @@
     window.PongGame = {};
   }
 
-  var Player = window.PongGame.Player = function (context, side) {
+  var Player = window.PongGame.Player = function (context, side, ball) {
     this.context = context;
     var paddleStartPosition = side == "left" ? [20, 20] : [780, 20];
     this.paddle = new PongGame.Paddle(this.context, paddleStartPosition);
@@ -21,9 +21,9 @@
 
   Player.prototype.checkPaddlePosition = function () {
     if (this.paddle.isTop()) {
-      this.paddleDirection = 0;
+        this.paddleDirection = 0;
     } else if (this.paddle.isBottom()) {
-      this.paddleDirection = 0;
+        this.paddleDirection = 0;
     }
   }
 

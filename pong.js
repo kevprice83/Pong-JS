@@ -35,7 +35,21 @@
       this.playerRight.checkPaddlePosition();
       this.leftDetector.checkCollision();
       this.rightDetector.checkCollision();
+      this.leftDetector.score();
+      this.rightDetector.score();
+      this.renderScores();
     }
+
+    Game.prototype.renderScores = function () {
+      this.context.fillStyle = 'white';
+      this.context.font = '60px Tahoma';
+      this.context.fillText(this.leftDetector.points, this.canvas.width/4 - 10, 70);
+      this.context.fillText(this.rightDetector.points, this.canvas.width/4 *3 - 10, 70);
+    }
+
+    // Game.prototype.pointScored = function () {
+    //   return this.leftDetector.score() || this.rightDetector.score()
+    // }
 
     Game.prototype.play = function () {
       setInterval(this.render.bind(this), 7);

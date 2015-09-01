@@ -22,7 +22,7 @@
   } 
 
   Ball.prototype.isLeft = function() {
-    return (this.position[0] - this.radius) > 0;
+    return (this.position[0] + this.radius) < 0;
   }
 
   Ball.prototype.isRight = function() {

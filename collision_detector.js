@@ -7,6 +7,7 @@
   var CollisionDetector = window.PongGame.CollisionDetector = function (player, ball) {
     this.player = player;
     this.ball = ball;
+    this.points = 0;
   }
 
   CollisionDetector.prototype.hitLeft = function() {
@@ -24,6 +25,18 @@
       this.ball.changeBallDirection()
     } else if (this.player.side == "right" && this.hitRight()) {
       this.ball.changeBallDirection()
+    }
+  };
+
+  CollisionDetector.prototype.score = function () {
+    if (this.player.side == "right" && this.ball.isLeft()) {
+        this.points += 1;
+        this.ball.position[0] = 400;
+        this.ball.position[1] = 250;
+    } else if (this.player.side == "left" && this.ball.isRight()) {
+              this.points +=1;
+              this.ball.position[0] = 400;
+              this.ball.position[1] = 250;
     }
   };
 })();

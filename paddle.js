@@ -21,6 +21,11 @@
 
   Paddle.prototype.move = function (direction) {
     this.position[1] += direction;
+    if (this.position[1] < 0) {
+        this.position[1] = 0;
+    } else if (this.position[1] + this.height > this.context.canvas.height) {
+      this.position[1] = this.context.canvas.height - this.height;
+    }
   }
 
   Paddle.prototype.isTop = function () {
