@@ -33,9 +33,9 @@
     var downCode = this.side == "left" ? 115 : 108; 
     window.addEventListener("keypress", function (event) {
       if (event.keyCode == upCode) {
-        player.paddleDirection = -5;
+        player.paddleDirection = -3;
       } else if (event.keyCode == downCode) {
-        player.paddleDirection = 5;
+        player.paddleDirection = 3;
       }
 
     });
