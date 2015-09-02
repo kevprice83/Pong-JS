@@ -61,7 +61,6 @@
 
   Ball.prototype.increaseBallSpeed = function () {
     if (this.checkHits()) {
-      debugger;
       this.direction[0] += (this.direction[0] < 0) ? -0.1 : 0.1;
       this.direction[1] += (this.direction[1] < 0) ? -0.1 : 0.1;
       this.hits = 0;

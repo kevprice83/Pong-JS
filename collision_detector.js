@@ -13,13 +13,13 @@
   }
 
   CollisionDetector.prototype.hitLeft = function() {
-    return (this.ball.moreLeft(this.player.paddle.position[0] + this.player.paddle.width)); 
-            // this.ball.betweenY(this.player.paddle.position[1], this.player.paddle.position[1] + this.player.paddle.height));
+    return (this.ball.moreLeft(this.player.paddle.position[0] + this.player.paddle.width) && 
+            this.ball.betweenY(this.player.paddle.position[1], this.player.paddle.position[1] + this.player.paddle.height));
   }
 
   CollisionDetector.prototype.hitRight = function() {
-    return (this.ball.moreRight(this.player.paddle.position[0]));
-            // this.ball.betweenY(this.player.paddle.position[1], this.player.paddle.position[1] + this.player.paddle.height));
+    return (this.ball.moreRight(this.player.paddle.position[0]) &&
+            this.ball.betweenY(this.player.paddle.position[1], this.player.paddle.position[1] + this.player.paddle.height));
   }
 
   CollisionDetector.prototype.checkCollision = function() {
