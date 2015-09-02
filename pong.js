@@ -13,8 +13,8 @@
       this.ball = new PongGame.Ball(this.context);
       this.playerLeft = new PongGame.Player(this.context, "left");
       this.playerRight = new PongGame.Player(this.context, "right");
-      this.leftDetector = new PongGame.CollisionDetector(this.playerLeft, this.ball);
-      this.rightDetector = new PongGame.CollisionDetector(this.playerRight, this.ball);
+      this.leftDetector = new PongGame.CollisionDetector(this.playerLeft, this.ball, this.context);
+      this.rightDetector = new PongGame.CollisionDetector(this.playerRight, this.ball, this.context);
 
     }
     
@@ -29,6 +29,7 @@
       this.renderBackground();
       this.ball.move();
       this.ball.render();
+      this.ball.increaseBallSpeed();
       this.playerLeft.render();
       this.playerRight.render();
       this.playerLeft.checkPaddlePosition();
@@ -47,11 +48,7 @@
       this.context.fillText(this.rightDetector.points, this.canvas.width/4 *3 - 10, 70);
     }
 
-    // Game.prototype.pointScored = function () {
-    //   return this.leftDetector.score() || this.rightDetector.score()
-    // }
-
-    Game.prototype.play = function () {
-      setInterval(this.render.bind(this), 7);
+    Game.prototype.play = function () {  
+        setInterval(this.render.bind(this), 7);
     }
   })();

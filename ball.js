@@ -10,7 +10,8 @@
     this.context = context;
     this.position = [400, 250];
     this.radius = 5;
-    this.direction = [-1, -1];
+    this.direction = [1, 1];
+    this.hits = 0;
   };
 
   Ball.prototype.isTop = function() {
@@ -22,19 +23,19 @@
   } 
 
   Ball.prototype.isLeft = function() {
-    return (this.position[0] + this.radius) < 0;
+    return (this.position[0] + this.radius) < 0 && this.direction[0] < 0;
   }
 
   Ball.prototype.isRight = function() {
-    return (this.position[0] + this.radius) > this.context.canvas.width;
+    return (this.position[0] + this.radius) > this.context.canvas.width && this.direction[0] > 0;
   }
 
   Ball.prototype.moreLeft = function(x) {
-    return (this.position[0] - this.radius === x);
+    return (this.position[0] - this.radius <= x);
   }
 
   Ball.prototype.moreRight = function(x) {
-    return (this.position[0] + this.radius === x);
+    return (this.position[0] + this.radius >= x);
   }
 
   Ball.prototype.betweenY = function(y1, y2) {
@@ -52,6 +53,20 @@
   Ball.prototype.changeBallDirection = function() {
     this.direction[0] = -this.direction[0];
   }
+
+  Ball.prototype.checkHits = function () {
+    console.log("ball hits: " + this.hits);
+    return (this.hits % 5 === 0 && this.hits > 0)
+  };
+
+  Ball.prototype.increaseBallSpeed = function () {
+    if (this.checkHits()) {
+      debugger;
+      this.direction[0] += (this.direction[0] < 0) ? -0.1 : 0.1;
+      this.direction[1] += (this.direction[1] < 0) ? -0.1 : 0.1;
+      this.hits = 0;
+    }
+  };
 
   Ball.prototype.render = function () {
     this.context.beginPath();
