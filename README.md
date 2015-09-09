@@ -18,4 +18,6 @@ ruby -run -e httpd . -p 5000
 ```
 now open up your browser and go to ```localhost:5000```
 
+***Controls for the Left player are the W and S keys, for the Right player use the O and L keys***
+
 Enjoy the game!

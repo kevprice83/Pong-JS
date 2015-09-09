@@ -9,7 +9,7 @@
   var Ball = window.PongGame.Ball = function(context) {
     this.context = context;
     this.position = [400, 250];
-    this.radius = 5;
+    this.radius = 7;
     this.direction = [1, 1];
     this.hits = 0;
   };
@@ -30,12 +30,12 @@
     return (this.position[0] + this.radius) > this.context.canvas.width && this.direction[0] > 0;
   }
 
-  Ball.prototype.moreLeft = function(x) {
-    return (this.position[0] - this.radius <= x);
+  Ball.prototype.moreLeft = function(x1, x2) {
+    return (this.position[0] - this.radius >= x1 && this.position[0] - this.radius <= x2);
   }
 
-  Ball.prototype.moreRight = function(x) {
-    return (this.position[0] + this.radius >= x);
+  Ball.prototype.moreRight = function(x1, x2) {
+    return (this.position[0] + this.radius >= x1 && this.position[0] + this.radius <=x2);
   }
 
   Ball.prototype.betweenY = function(y1, y2) {

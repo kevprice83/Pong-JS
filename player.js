@@ -7,11 +7,12 @@
 
   var Player = window.PongGame.Player = function (context, side, ball) {
     this.context = context;
-    var paddleStartPosition = side == "left" ? [20, 20] : [780, 20];
+    var paddleStartPosition = side == "left" ? [20, 215] : [780, 215];
     this.paddle = new PongGame.Paddle(this.context, paddleStartPosition);
     this.side = side;
     this.setListeners();
     this.paddleDirection = 0;
+    this.points = 0;
   }
 
   Player.prototype.render = function () {
@@ -33,9 +34,9 @@
     var downCode = this.side == "left" ? 115 : 108; 
     window.addEventListener("keypress", function (event) {
       if (event.keyCode == upCode) {
-        player.paddleDirection = -3;
+        player.paddleDirection = -1.5;
       } else if (event.keyCode == downCode) {
-        player.paddleDirection = 3;
+        player.paddleDirection = 1.5;
       }
 
     });

@@ -43,9 +43,9 @@
 
     Game.prototype.renderScores = function () {
       this.context.fillStyle = 'white';
-      this.context.font = '60px Tahoma';
-      this.context.fillText(this.leftDetector.points, this.canvas.width/4 - 10, 70);
-      this.context.fillText(this.rightDetector.points, this.canvas.width/4 *3 - 10, 70);
+      this.context.font = '30px Tahoma';
+      this.context.fillText(this.playerLeft.points, this.canvas.width/4 *2 - 40, 40);
+      this.context.fillText(this.playerRight.points, this.canvas.width/4 *2 + 25, 40);
     }
 
     Game.prototype.play = function () {  
